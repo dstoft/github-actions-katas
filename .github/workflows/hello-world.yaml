@@ -27,7 +27,7 @@ jobs:
       - run: chmod +x ci/build-app.sh && ci/build-app.sh
       - uses: actions/upload-artifact@v2
         with:
-          name: code
+          name: build
           path: .
   Test:
     runs-on: ubuntu-latest
