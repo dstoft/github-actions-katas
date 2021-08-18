@@ -7,7 +7,7 @@ env:
 
 jobs:
   Clone-Down:
-    runs-on: self-hoster
+    runs-on: self-hosted
     container: gradle:6-jdk11
     steps:
       - uses: actions/checkout@v2
@@ -16,7 +16,7 @@ jobs:
           name: code
           path: .
   Build:
-    runs-on: self-hoster
+    runs-on: self-hosted
     container: gradle:6-jdk11
     needs: Clone-Down
     steps:
@@ -30,7 +30,7 @@ jobs:
           name: code
           path: .
   Test:
-    runs-on: self-hoster
+    runs-on: self-hosted
     container: gradle:6-jdk11
     needs: Clone-Down
     steps:
@@ -40,7 +40,7 @@ jobs:
           path: .
       - run: chmod +x ci/unit-test-app.sh && ci/unit-test-app.sh
   Docker-image:
-    runs-on: self-hoster
+    runs-on: self-hosted
     needs: [Build, Test]
     steps:
       - uses: actions/download-artifact@v2
