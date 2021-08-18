@@ -5,6 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     container: gradle:6-jdk11
     steps:
-      - name: my-step
+      - name: checkout
         uses: actions/checkout@v2
+      - name: build-app
         run: ci/build-app.sh
